@@ -1,93 +1,129 @@
 # 🌿 Plant Disease Identification and Pesticide Recommendation Using CNN
 
-This is a full-stack Django-based AI application that helps farmers detect plant diseases and recommends pesticides using Convolutional Neural Networks (CNN) and VGG16. It includes real-time predictions, geolocation-based logging, and an intuitive web interface.
+This is a Django-based AI project that allows farmers and users to identify plant diseases through image upload and receive pesticide suggestions. The system uses CNN & VGG16-based models and offers a user-friendly web interface with location-based data tracking (future feature).
+
+> 🔗 **GitHub Repo:** [Plant Disease Identification and Pesticide Recommendation](https://github.com/Yasesvi-Reddy-Pebbeti/Plant-Disease-Identification-and-Pestiside-Recmmendation-Using-CNN)
 
 ---
 
-## 🧠 Features
+## 🚀 Features
 
-- 🌱 Image-based plant disease detection using CNN & VGG16
-- 🧪 Pesticide recommendation engine based on disease type
-- 🌐 Django-powered web interface with user login and image upload
-- 📍 Google Maps integration for visualizing infected locations
-- 💬 Expert system logic from curated pesticide knowledge base
-- 🗃️ SQL database for storing predictions and user info
-
----
-
-## 🔧 Tech Stack
-
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: Django (Python), MySQL
-- **AI Models**: Custom CNN and Transfer Learning (VGG16)
-- **Visualization**: Google Maps API
+- 🌱 Upload plant leaf images via web interface
+- 🧠 CNN and VGG16-based classification (model loading optional in current version)
+- 🧪 Pesticide recommendation system
+- 👤 User registration and login functionality
+- 🗺️ (Coming soon) Google Maps for visualizing infection spread
+- 🛠️ PostgreSQL database integration
 
 ---
 
-## 🛠️ Project Structure
+## 🧰 Tech Stack
+
+| Layer       | Technology                     |
+|-------------|--------------------------------|
+| Frontend    | HTML, CSS                      |
+| Backend     | Django (Python)                |
+| AI Models   | CNN, VGG16                     |
+| Database    | PostgreSQL                     |
+| Other       | GeoIP, Google Maps API (future)|
+
+---
+
+## 📁 Folder Structure
 
 ```
-📁 Plant_Disease_CNN_Project/
+Plant-Disease-Identification-and-Pestiside-Recmmendation-Using-CNN/
 ├── manage.py
-├── model/ (CNN & VGG Models)
-├── templates/ (HTML files)
-├── static/ (CSS, images)
-├── views.py, urls.py, models.py
-├── 📄 README.md
-├── 📄 requirements.txt
-└── 📄 PlantDisease.sql
+├── requirements.txt
+├── README.md
+├── LICENSE
+├── PlantDiseaseProject/       # Django project (settings, URLs)
+├── PlantDiseaseApp/           # Django app (views, models, templates)
+├── model/                     # CNN + VGG model files and weights
+├── PlantDisease.sql           # MySQL data (optional legacy)
+└── GeoLite2-City.mmdb         # GeoIP location DB (optional)
 ```
 
 ---
 
-## 🚀 Setup Instructions
+## ⚙️ Setup Instructions
+
+### ✅ Step 1: Clone the repo
 
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
+git clone https://github.com/Yasesvi-Reddy-Pebbeti/Plant-Disease-Identification-and-Pestiside-Recmmendation-Using-CNN.git
+cd Plant-Disease-Identification-and-Pestiside-Recmmendation-Using-CNN
+```
 
-# Create virtual environment
+### ✅ Step 2: Create a virtual environment
+
+```bash
 python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+venv\Scripts\activate    # Windows
+```
 
-# Install dependencies
+### ✅ Step 3: Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-# Load the database
-Open MySQL and run:
-mysql -u root -p < PlantDisease.sql
+### ✅ Step 4: Configure PostgreSQL
 
-# Run the Django server
+Ensure you have a database named `plantdiseasedb` and update your credentials in:
+```
+PlantDiseaseProject/settings.py
+```
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'plantdiseasedb',
+        'USER': 'postgres',
+        'PASSWORD': 'your_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```
+
+### ✅ Step 5: Migrate and run
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
 python manage.py runserver
 ```
 
----
-
-## 📊 Model Summary
-
-- CNN Accuracy: ~95%
-- VGG16 Transfer Learning Accuracy: ~97%
-- Input Size: 64x64 RGB images
-- Softmax Output for 15 plant diseases
+Visit: [http://127.0.0.1:8000/index.html](http://127.0.0.1:8000/index.html)
 
 ---
 
-## 🗺️ Map Feature
+## 🧠 Model Architecture (CNN)
 
-- Uses **GeoIP2 + Google Maps API** to pin disease reports
-- Admin view to analyze disease spread visually
+> ⚠️ Currently optional to run for testing. Full model functionality available after fixing environment-level TensorFlow install.
+
+```text
+Conv2D → MaxPooling2D → Conv2D → MaxPooling2D → Flatten → Dense → Softmax
+```
+
+---
+
+## 📷 Screenshots (optional)
+
+*You can add screenshots of your web UI here.*
 
 ---
 
 ## 🪪 License
 
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 🙋 Author
+## 👤 Author
 
-**Yasesvi Reddy Pebbeti**  
-Project Guide: Mrs. M. Sri Vidya  
-B.E. IT, Matrusri Engineering College, 2023-2024
+**Yasesvi Reddy Pebbeti**
+
+---
