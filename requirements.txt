@@ -1,0 +1,13 @@
+Django==3.2
+mysqlclient==2.1.1
+tensorflow==2.13.0
+numpy==1.23.5
+pillow==9.5.0
+matplotlib==3.7.1
+scikit-learn==1.2.2
+geopandas==0.13.2
+geopy==2.3.0
+requests==2.31.0
+opencv-python==4.8.0.76
+googlemaps==4.10.0
+pygeoip==0.3.2

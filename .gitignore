@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+db.sqlite3
+media
+staticfiles
+*.pot
+*.pyc
+
+# VS Code
+.vscode/
+
+# Environment
+.env
+venv/
+ENV/
+
+# Model weights / data
+*.h5
+*.npy
+*.pckl
