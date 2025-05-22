@@ -110,10 +110,6 @@ Conv2D → MaxPooling2D → Conv2D → MaxPooling2D → Flatten → Dense → So
 
 ---
 
-## 📷 Screenshots (optional)
-
-*You can add screenshots of your web UI here.*
-
 ---
 
 ## 🪪 License
